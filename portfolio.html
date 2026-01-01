@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Teacher & Fullstack Developer</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dark-navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --white: #e6f1ff;
+            --accent: #64ffda;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-navy);
+            color: var(--light-slate);
+            line-height: 1.6;
+        }
+
+        /* --- Navbar Styles --- */
+        .navbar {
+            background-color: rgba(10, 25, 47, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--lightest-navy);
+            padding: 15px 0;
+        }
+        .navbar-brand {
+            color: var(--accent) !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: var(--white) !important;
+            font-size: 0.9rem;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--accent) !important; }
+        
+        .navbar-toggler { border-color: var(--accent); }
+        .navbar-toggler-icon {
+            filter: invert(80%) sepia(50%) saturate(400%) hue-rotate(110deg);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+        }
+        .profile-img {
+            width: 100%;
+            max-width: 320px; /* Desktop Size */
+            border-radius: 12px;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+            box-shadow: -10px 10px 0px var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .hero p.intro { color: var(--accent); font-family: monospace; margin-bottom: 10px; }
+        .hero h1 { font-size: clamp(35px, 5vw, 60px); color: var(--white); font-weight: 700; }
+        .hero h2 { font-size: clamp(20px, 3vw, 30px); color: var(--slate); margin-bottom: 20px; }
+
+        /* --- Global Section Style --- */
+        section { padding: 80px 0; }
+        .section-title {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        .section-title::after {
+            content: ""; height: 1px; width: 150px; background: var(--lightest-navy); margin-left: 20px;
+        }
+
+        /* --- About Section --- */
+        .about-text {
+            text-align: justify; /* Justify Alignment */
+        }
+
+        /* --- Project Cards --- */
+        .card-project {
+            background: var(--light-navy);
+            padding: 30px;
+            border-radius: 8px;
+            height: 100%;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        .card-project:hover {
+            transform: translateY(-8px);
+            background: var(--lightest-navy);
+            border-bottom: 3px solid var(--accent);
+        }
+        .card-project h4 { color: var(--white); margin-bottom: 15px; font-size: 1.2rem; }
+        .card-project p { font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+        .tags { font-size: 0.75rem; font-family: monospace; color: var(--accent); }
+
+        /* --- Contact Form --- */
+        .contact-form input, .contact-form textarea {
+            background: var(--light-navy);
+            border: 1px solid var(--lightest-navy);
+            color: var(--white);
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 4px;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            background: var(--lightest-navy);
+            border-color: var(--accent);
+            color: var(--white);
+            box-shadow: none;
+        }
+        .btn-submit {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            width: fit-content;
+        }
+        .btn-submit:hover { background: rgba(100, 255, 218, 0.1); color: var(--accent); }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid var(--lightest-navy); font-size: 0.8rem; margin-top: 50px;}
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 991px) {
+            .hero-content { text-align: center; }
+            .hero-img-box { 
+                margin-bottom: 30px; 
+                display: flex; 
+                justify-content: center; 
+            }
+            /* Smaller profile image for mobile */
+            .profile-img { 
+                max-width: 200px; 
+                box-shadow: -7px 7px 0px var(--accent);
+            }
+            .section-title { font-size: 1.5rem; }
+            .hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">DevTeacher</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <div class="row w-100 align-items-center">
+                <div class="col-lg-5 hero-img-box order-1 order-lg-1">
+                    <img src="me.png" alt="Profile Picture" class="profile-img">
+                </div>
+                <div class="col-lg-7 hero-content mt-4 mt-lg-0 order-2 order-lg-2">
+                    <p class="intro">Hi, my name is</p>
+                    <h1>Rama Oktamala, S.T.</h1>
+                    <h2>Teacher & Fullstack Developer</h2>
+                    <p class="mt-3" style="max-width: 540px; margin-left: 0;">Dedicated to the world of education while actively building innovative digital solutions for web and mobile platforms.</p>
+                </div>
+            </div>
+        </header>
+
+        <section id="about">
+            <h3 class="section-title">About Me</h3>
+            <div class="row">
+                <div class="col-lg-12 about-text">
+                    <p>As an <strong>Educator</strong> and <strong>Fullstack Developer</strong>, I possess a unique perspective in software development. I believe technology should simplify human tasks, especially within educational environments.</p>
+                    <p>Beyond my teaching responsibilities, I actively develop various information systems for schools and businesses. I am experienced in working with frameworks such as <strong>Laravel</strong> and <strong>Codeigniter</strong> to create reliable, efficient, and purposeful applications. By staying at the intersection of pedagogy and technology, I continuously strive to build software that is not only robust in performance but also intuitive for everyday users. I am committed to delivering high-quality digital solutions that solve real-world problems effectively.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="work">
+            <h3 class="section-title">Featured Projects</h3>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-project">
+                        <h4>Simokel</h4>
+                        <p>Field Work Monitoring System specifically designed to track and record vocational student activities during internships in real-time.</p>
+                        <div class="tags">Laravel 12 · Bootstrap · jQuery · MySQL</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-project">
+                        <h4>E-Voting SMK</h4>
+                        <p>Web-based election platform for student council leaders, ensuring a secure, fast, and transparent voting process at school.</p>
+                        <div class="tags">Laravel 12 · Bootstrap · jQuery · MySQL</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-project">
+                        <h4>E-Admguru</h4>
+                        <p>Teacher administration application to streamline teaching logs, attendance, and lesson planning in a single portal.</p>
+                        <div class="tags">Codeigniter 4 · Bootstrap · jQuery · MySQL</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-project">
+                        <h4>LaundryApp</h4>
+                        <p>Management system for laundry businesses, covering customer queues through to automated revenue reporting.</p>
+                        <div class="tags">Codeigniter 4 · Bootstrap · jQuery · MySQL</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-project">
+                        <h4>Point of Sale (POS)</h4>
+                        <p>Web-based cashier application focusing on easy stock management and efficient sales transaction processing.</p>
+                        <div class="tags">Codeigniter 4 · Bootstrap · jQuery · MySQL</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-project">
+                        <h4>Public Transport Info</h4>
+                        <p>Information and route mapping application for public transportation in Tasikmalaya City to enhance community mobility.</p>
+                        <div class="tags">Codeigniter 4 · Bootstrap · jQuery · MySQL</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h3 class="section-title">Contact us</h3>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <p class="mb-4">Do you have a question or want to discuss a project collaboration? Please send a message through the form below.</p>
+                    <form action="#" method="POST" class="contact-form d-flex flex-column align-items-center align-items-lg-start">
+                        <input type="text" class="form-control shadow-none w-100" name="name" placeholder="Full Name" required>
+                        <input type="email" class="form-control shadow-none w-100" name="email" placeholder="Your Email" required>
+                        <textarea class="form-control shadow-none w-100" name="message" rows="5" placeholder="Your Message..." required></textarea>
+                        <button type="submit" class="btn btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Your Name. Built with passion for learning & sharing.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
